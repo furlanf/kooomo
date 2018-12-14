@@ -1,0 +1,40 @@
+<div class="product-content text-center">
+  <a href="">
+    <div class="image">
+      <img src="{{ product.images?.small}}" class="img-fluid" alt="" />
+    </div>
+  </a>
+
+  <a href="#" class="action-icon fa fa-heart" title="Add to wishlist"></a>
+
+  <div class="clearfix">
+    <a class="name" href="">
+      <h3 class="">{{ product.name }}</h3>
+    </a>
+    <div class="description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt...
+    </div>
+    <div class="price text-center">
+      <div class="normal" [ngClass]="{ discount: product.price.to_discount }">
+        {{ product.price.sell | currency: product.price.currency_symbol + " " }}
+      </div>
+      <del>
+        <span class="normal-price" *ngIf="product.price.to_discount">
+          {{
+            product.price.to_discount | currency: product.price.currency_symbol
+          }}
+        </span>
+      </del>
+    </div>
+
+    <div class="more-colors" *ngIf="colors.length">
+      <span>MORE COLORS</span>
+      <div class="colors">
+        <a (click)="updateImage(color)" *ngFor="let color of colors">
+          <img src="{{color}}" width="40" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

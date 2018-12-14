@@ -1,0 +1,42 @@
+.breadcrumb-search {
+  display: flex;
+  border-bottom: 1px solid #333333;
+
+  .breadcrumb {
+    /* reset bootstrap */
+    margin-bottom: 0;
+    background: transparent;
+    &-item {
+      & + :before {
+        content: ">";
+      }
+    }
+
+    flex: 1;
+
+    a {
+      color: #333333;
+    }
+  }
+
+  .search {
+    border: 1px solid #333;
+    display: flex;
+    align-self: center;
+    .form-inline {
+      flex-flow: row nowrap;
+
+      .form-control {
+        border: none;
+        &:focus,
+        &:active,
+        &:outline {
+          border: none;
+        }
+      }
+      .btn-link {
+        color: #333;
+      }
+    }
+  }
+}

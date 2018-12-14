@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+@import "styles/variables";
+
+// INCLUDES
+@import "styles/includes/loader";
+@import "styles/includes/breadcrumb";
+@import "styles/includes/error";
+
+// MODULES
+@import "styles/modules/banner-category";
+@import "styles/modules/product";

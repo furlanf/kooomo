@@ -1,0 +1,66 @@
+<div class="category-banner">
+  <img src="assets/images/banner-koomo.png" class="img-fluid" />
+  <div class="category-banner-description">
+    <h1 class="category-banner-description-title">Running</h1>
+    <p class="category-banner-description-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      <br />
+      tempor incididunt ut labore et dolore magna aliqua.
+    </p>
+  </div>
+</div>
+
+<div class="container-fluid overflow-hidden">
+  <div class="breadcrumb-search">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Men</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Shoes</li>
+      </ol>
+    </nav>
+    <div class="search ml-auto">
+      <div class="form-inline">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Search"
+          autocomplete="off"
+          #productSearch
+          (keyup.enter)="search(productSearch.value)"
+        />
+        <button
+          class="btn btn-link btn-xs"
+          (click)="search(citySearch.value)"
+          type="button"
+          title="Search"
+        >
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix search-results" *ngIf="searchProduct">
+    <span class="clearfix h3 text-info">Search results:</span>
+    <h2 class="h2 text-secondary">“{{ searchProduct }}”</h2>
+    <span class=""> &nbsp;&nbsp;({{ products.length }} Products) </span>
+  </div>
+  <div class="product row">
+    <article class="col-md-3 col-xs-6" *ngFor="let product of products">
+      <app-product-item
+        [product]="product"
+        [options]="product.options"
+      ></app-product-item>
+    </article>
+    <div class="error" *ngIf="error">Something went wrong!</div>
+    <div class="loading" *ngIf="!error && loading">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
